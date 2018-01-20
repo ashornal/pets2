@@ -1,0 +1,12 @@
+{
+  "name":"ashornal/pp",
+  "authors":[
+    {
+      "name":"Alex Shornal",
+      "email":"ashornal2@mail.greenriver.edu"
+    }
+  ],
+  "require":{
+    "bcosca/fatfree-core":"dev-master"
+  }
+}
