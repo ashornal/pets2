@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>New-Pet</title>
+</head>
+<body>
+<h1>Order a Pet</h1>
+
+<select class="form-control" name="pet-color" id="pet-color">
+    <repeat group="{{@colors}}" value="{{@colorOption}}">
+        <option> {{@colorOption}}</option>
+    </repeat>
+</select>
+
+</body>
+</html>
