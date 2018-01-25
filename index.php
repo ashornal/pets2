@@ -9,6 +9,8 @@ require_once ('vendor/autoload.php');
 //create an instance of the Base class
 $f3 = Base::instance();
 
+$f3->set('colors', array('pink', 'green', 'blue'));
+
 
 //define a default route
 $f3->route("GET /", function()
@@ -35,6 +37,13 @@ $f3->route("POST /pets/results", function()
     $_SESSION['color'] = $_POST['color'];
     echo "<h1>Results Page</h1>";
     echo "Thank you for ordering a ".$_SESSION['color']. " ".$_SESSION['animal'];
+}
+);
+
+$f3->route("GET|POST /new-pet", function($f3)
+{
+    $template = new Template();
+    echo $template->render('views/new-pet.html');
 }
 );
 
