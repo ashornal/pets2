@@ -1,4 +1,6 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 function validColor($color)
 {
     global $f3;
@@ -13,6 +15,5 @@ $errors = array();
 if(!validColor())
 {
     $errors['color'] = "Please enter a valid color";
-    $f3->set($errors['color']);
 }
 $success = sizeof($errors) == 0;

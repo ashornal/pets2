@@ -1,6 +1,9 @@
 <?php
 session_start();
 
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
 
 //require the autoload file
 require_once ('vendor/autoload.php');
@@ -9,7 +12,8 @@ require_once ('vendor/autoload.php');
 //create an instance of the Base class
 $f3 = Base::instance();
 
-
+//set debug level
+$f3->set('DEBUG', 3);
 
 
 //define a default route
@@ -45,17 +49,18 @@ $f3->route("GET|POST /new-pet", function($f3)
     $f3->set('colors', array('pink', 'green', 'blue'));
 
     if(isset($_POST['submit'])) {
-        include ('model/validate.php');
+
         $color = $_POST['pet-color'];
         $type = $_POST['pet-type'];
         $name = $_POST['pet-name'];
 
-        $errors = $f3->get($errors['color']);
 
+        include ('model/validate.php');
         $f3->set('color', $color);
         $f3->set('type', $type);
         $f3->set('name', $name);
         $f3->set('errors', $errors);
+        $f3->set('success', $success);
 
     }
 
