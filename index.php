@@ -12,6 +12,8 @@ require_once ('vendor/autoload.php');
 //create an instance of the Base class
 $f3 = Base::instance();
 
+$f3->set('colors', array('pink', 'green', 'blue'));
+
 //set debug level
 $f3->set('DEBUG', 3);
 
@@ -46,7 +48,7 @@ $f3->route("POST /pets/results", function()
 
 $f3->route("GET|POST /new-pet", function($f3)
 {
-    $f3->set('colors', array('pink', 'green', 'blue'));
+
 
     if(isset($_POST['submit'])) {
 
@@ -56,13 +58,13 @@ $f3->route("GET|POST /new-pet", function($f3)
 
 
         include ('model/validate.php');
-        $f3->set('color', $color);
-        $f3->set('type', $type);
-        $f3->set('name', $name);
-        $f3->set('errors', $errors);
-        $f3->set('success', $success);
 
     }
+    $f3->set('color', $color);
+    $f3->set('type', $type);
+    $f3->set('name', $name);
+    $f3->set('errors', $errors);
+    $f3->set('success', $success);
 
     $template = new Template();
     echo $template->render('views/new-pet.html');

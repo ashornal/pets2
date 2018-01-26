@@ -8,22 +8,26 @@ function validColor($color)
     return in_array($color, $f3->get('colors'));
 }
 
-
-function validString($string)
-{
-    return $string != null && ctype_alpha($string);
+function validString($string){
+    if(!empty($string) && is_string($string))
+    {
+        return true;
+    }
+    else {
+        return false;
+    }
 }
-
 $errors = array();
 
-if(!validColor($string))
-{
+$success = false;
+if(!validColor($color)) {
     $errors['color'] = "Please enter a valid color";
 }
-
-if(!validString($string))
-{
+elseif (!validString($name)){
     $errors['name'] = "Please enter a valid name";
-    $errors['type'] = "Please enter a valid type";
 }
-$success = sizeof($errors) == 0;
+elseif ((!validString($type))){
+    $errors['type'] = "Please enter a valid type";
+} else {
+    $success = true;
+}
