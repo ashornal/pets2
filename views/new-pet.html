@@ -9,23 +9,48 @@
 
 <form action="#" method="post">
 
-    <p>Pet Name<input type="text" name="pet-name"></p>
+    <label class="col-sm-1 control-label"
+        >Pet Name</label>
+    <div class="col-sm-3">
+        <check if="{{isset(@errors['name']) }}">
+            <p>{{@errors['name'] }}</p>
+        </check>
+        <input class="form-control" type="text" name="pet-name">
 
-    <p>Pet Color
-    <select class="form-control" name="pet-color" id="pet-color">
-        <repeat group="{{@colors}}" value="{{@colorOption}}">
-            <option> {{@colorOption}}</option>
-        </repeat>
-    </select>
-    </p>
+    </div>
 
-    <p>
-        Pet Type<input type="text" name="pet-type">
-    </p>
+
+
+    <label class="col-sm-1 control-label"
+           for="pet-color">Pet Color</label>
+    <div class="col-sm-3">
+        <check if="{{isset(@errors['color']) }}">
+            <p>{{@errors['color'] }}</p>
+        </check>
+        <select class="form-control" name="pet-color" id="pet-color">
+            <repeat group="{{@colors}}" value="{{@colorOption}}">
+                <option> {{@colorOption}}</option>
+            </repeat>
+        </select>
+    </div>
+
+    <label class="col-sm-1 control-label"
+    >Pet Type</label>
+    <div class="col-sm-3">
+        <check if="{{isset(@errors['type']) }}">
+            <p>{{@errors['type'] }}</p>
+        </check>
+        <input class="form-control" type="text" name="pet-type">
+
+    </div>
 
     <button type="submit">Submit</button>
 
 </form>
+
+<check if="{{@success}}">
+    <h2>Thank you for your order of a {{@type}} !</h2>
+</check>
 
 </body>
 </html>
