@@ -8,9 +8,11 @@ function validString($string)
 {
     return $string != null && ctype_alpha($string);
 }
+
 $errors = array();
 if(!validColor())
 {
     $errors['color'] = "Please enter a valid color";
+    $f3->set($errors['color']);
 }
 $success = sizeof($errors) == 0;

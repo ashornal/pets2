@@ -7,11 +7,25 @@
 <body>
 <h1>Order a Pet</h1>
 
-<select class="form-control" name="pet-color" id="pet-color">
-    <repeat group="{{@colors}}" value="{{@colorOption}}">
-        <option> {{@colorOption}}</option>
-    </repeat>
-</select>
+<form action="#" method="post">
+
+    <p>Pet Name<input type="text" name="pet-name"></p>
+
+    <p>Pet Color
+    <select class="form-control" name="pet-color" id="pet-color">
+        <repeat group="{{@colors}}" value="{{@colorOption}}">
+            <option> {{@colorOption}}</option>
+        </repeat>
+    </select>
+    </p>
+
+    <p>
+        Pet Type<input type="text" name="pet-type">
+    </p>
+
+    <button type="submit">Submit</button>
+
+</form>
 
 </body>
 </html>
