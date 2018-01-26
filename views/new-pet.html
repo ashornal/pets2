@@ -7,7 +7,7 @@
 <body>
 <h1>Order a Pet</h1>
 
-<form action="#" method="post">
+<form action="" method="post">
 
     <label class="col-sm-1 control-label"
         >Pet Name</label>
@@ -34,8 +34,7 @@
         </select>
     </div>
 
-    <label class="col-sm-1 control-label"
-    >Pet Type</label>
+    <label class="col-sm-1 control-label">Pet Type</label>
     <div class="col-sm-3">
         <check if="{{isset(@errors['type']) }}">
             <p>{{@errors['type'] }}</p>
@@ -44,7 +43,7 @@
 
     </div>
 
-    <button type="submit">Submit</button>
+    <button type="submit" name="submit">Submit</button>
 
 </form>
 
