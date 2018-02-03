@@ -25,13 +25,13 @@ $f3->route("GET /", function()
     echo $template->render('views/home.html');
 }
 );
-$f3->route("GET /pets/order", function()
+$f3->route("GET /pets/order", function() //animal
 {
     $template = new Template();
     echo $template->render('views/form1.html');
 }
 );
-$f3->route("POST /pets/order2", function()
+$f3->route("POST /pets/order2", function() //color
 {
     $template = new Template();
     echo $template->render('views/form2.html');

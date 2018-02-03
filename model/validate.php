@@ -26,7 +26,7 @@ if(!validColor($color)) {
 elseif (!validString($name)){
     $errors['name'] = "Please enter a valid name";
 }
-elseif ((!validString($type))){
+elseif (!validString($type)){
     $errors['type'] = "Please enter a valid type";
 } else {
     $success = true;
